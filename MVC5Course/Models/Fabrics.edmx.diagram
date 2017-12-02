@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="628adea6a4104b73a317bd05e308417d" Name="Diagram1">
-        <EntityTypeShape EntityType="FabricsModel.Client" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FabricsModel.Client123" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="FabricsModel.Occupation" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="FabricsModel.Order" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="FabricsModel.OrderLine" Width="1.5" PointX="7.5" PointY="3.625" IsExpanded="true" />
