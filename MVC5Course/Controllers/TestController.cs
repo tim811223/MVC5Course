@@ -8,10 +8,8 @@ using Omu.ValueInjecter;
 
 namespace MVC5Course.Controllers
 {
-    public class TestController : Controller
+    public class TestController : BaseController
     {
-        ProductRepository repo = RepositoryHelper.GetProductRepository();
-
         public ActionResult Index()
         {
             var data = repo.Get取得所有尚未刪除的商品資料Top10();
