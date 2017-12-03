@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace MVC5Course.Controllers
 {
-    public class ARController : Controller
+    public class ARController : BaseController
     {
         public ActionResult Index()
         {
@@ -40,5 +40,18 @@ namespace MVC5Course.Controllers
                 return File(Server.MapPath("~/App_Data/HNCK1202-2.jpg"), "image/jpeg", "IPhoneBroken.jpg");
             }
         }
+
+        public ActionResult JsonTest()
+        {
+            var data = from p in repo.All()
+                       select new
+                       {
+                           p.ProductId,
+                           p.ProductName,
+                           p.Price
+                       };
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
+
     }
 }
