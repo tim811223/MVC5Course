@@ -71,7 +71,7 @@ namespace MVC5Course.Controllers
             {
                 return RedirectToAction("Index");
             }
-            return View();
+            return View(item);
         }
 
         public ActionResult Delete(int id)
