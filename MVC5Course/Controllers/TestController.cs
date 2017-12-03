@@ -11,11 +11,10 @@ namespace MVC5Course.Controllers
     public class TestController : Controller
     {
         FabricsEntities db = new FabricsEntities();
+        ProductRepository repo = RepositoryHelper.GetProductRepository();
 
         public ActionResult Index()
         {
-            var repo = new ProductRepository();
-            repo.UnitOfWork = new EFUnitOfWork();
             var data = repo.All().Where(p => p.IsDeleted == false);
 
             return View(data.Take(10));
