@@ -29,5 +29,16 @@ namespace MVC5Course.Controllers
             return PartialView("JsAlertRedirect", "新增成功");
         }
 
+        public ActionResult FileTest(string dl)
+        {
+            if (String.IsNullOrEmpty(dl))
+            {
+                return File(Server.MapPath("~/App_Data/HNCK1202-2.jpg"), "image/jpeg");
+            }
+            else
+            {
+                return File(Server.MapPath("~/App_Data/HNCK1202-2.jpg"), "image/jpeg", "IPhoneBroken.jpg");
+            }
+        }
     }
 }
