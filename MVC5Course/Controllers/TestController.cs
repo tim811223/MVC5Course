@@ -14,9 +14,9 @@ namespace MVC5Course.Controllers
 
         public ActionResult Index()
         {
-            var data = from p in db.Product
-                       where p.IsDeleted == false
-                       select p;
+            var repo = new ProductRepository();
+            repo.UnitOfWork = new EFUnitOfWork();
+            var data = repo.All().Where(p => p.IsDeleted == false);
 
             return View(data.Take(10));
         }
