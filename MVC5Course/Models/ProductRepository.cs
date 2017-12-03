@@ -10,6 +10,12 @@ namespace MVC5Course.Models
         {
             return base.All().Where(p => p.IsDeleted == false);
         }
+
+        public override void Delete(Product entity)
+        {
+            entity.IsDeleted = true;
+        }
+
         public Product Find(int id)
         {
             return this.All().FirstOrDefault(p => p.ProductId == id);

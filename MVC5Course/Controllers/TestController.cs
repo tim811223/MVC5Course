@@ -66,17 +66,25 @@ namespace MVC5Course.Controllers
 
         public ActionResult Details(int id)
         {
-            return View(repo.Find(id));
+            var item = repo.Find(id);
+            if (item == null)
+            {
+                return RedirectToAction("Index");
+            }
+            return View();
         }
 
         public ActionResult Delete(int id)
         {
+            //var olRepo = RepositoryHelper.GetOrderLineRepository(repo.UnitOfWork);
+            //olRepo.Delete(olRepo.All().First(p => p.OrderId == 1));
+
+            //var olRepo = new OrderLineRepository();
+            //olRepo.UnitOfWork = repo.UnitOfWork;
+            //olRepo.Delete(olRepo.All().First(p => p.OrderId == 1));
+
             var item = repo.Find(id);
-
-            //db.OrderLine.RemoveRange(item.OrderLine.ToList());
-            //db.Product.Remove(item);
-
-            item.IsDeleted = true;
+            repo.Delete(item);
 
             repo.UnitOfWork.Commit();
 
