@@ -393,6 +393,7 @@
     <Content Include="Views\Test\Edit.cshtml" />
     <Content Include="Views\Test\Details.cshtml" />
     <Content Include="Views\AR\Index.cshtml" />
+    <Content Include="Views\Shared\JsAlertRedirect.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
