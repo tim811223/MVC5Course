@@ -4,13 +4,8 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.PageTitle</h2>
 
-@if (TempData["ProductItem"] != null)
-{
-    var item = TempData["ProductItem"] as MVC5Course.Models.Product;
-    <pre>@item.ProductName 新增成功!!</pre>
-}
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -27,6 +22,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Stock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsDeleted)
         </th>
         <th></th>
     </tr>
@@ -46,9 +44,12 @@
             @Html.DisplayFor(modelItem => item.Stock)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.IsDeleted)
+        </td>
+        <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
             @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductId }, new { onclick="return confirm('Are you SURE?');" })
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
         </td>
     </tr>
 }
