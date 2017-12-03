@@ -67,7 +67,7 @@ namespace MVC5Course.Controllers
             var item = repo.Find(id);
             if (item == null)
             {
-                return RedirectToAction("Index");
+                return HttpNotFound();
             }
             return View(item);
         }
