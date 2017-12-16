@@ -23,7 +23,7 @@ namespace MVC5Course.Models
         public int ProductId { get; set; }
         
         [StringLength(80, ErrorMessage="欄位長度不得大於 80 個字元")]
-        [身分證字號]
+        //[身分證字號]
         public string ProductName { get; set; }
         [Required]
         public Nullable<decimal> Price { get; set; }
