@@ -138,5 +138,13 @@ namespace MVC5Course.Controllers
             }
             base.Dispose(disposing);
         }
+
+#if !DEBUG
+        [NonAction]
+#endif
+        public ActionResult Debug()
+        {
+            return View();
+        }
     }
 }
