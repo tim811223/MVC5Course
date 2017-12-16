@@ -1,6 +1,7 @@
 ﻿using MVC5Course.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -25,6 +26,7 @@ namespace MVC5Course.Controllers
         }
 
         [HttpPost]
+        [HandleError(ExceptionType = typeof(DbEntityValidationException), View = "Error_DbEntityValidationException")]
         public ActionResult Index(MBBatchUpdateVM[] batch)
         {
             if (ModelState.IsValid)
@@ -32,6 +34,7 @@ namespace MVC5Course.Controllers
                 foreach (var item in batch)
                 {
                     var one = repo.Find(item.ProductId);
+                    
                     one.Price = item.Price;
                     one.Active = item.Active;
                     one.Stock = item.Stock;
