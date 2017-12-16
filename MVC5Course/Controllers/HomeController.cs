@@ -28,5 +28,10 @@ namespace MVC5Course.Controllers
 
             return View();
         }
+
+        public ActionResult VT()
+        {
+            return PartialView();
+        }
     }
 }

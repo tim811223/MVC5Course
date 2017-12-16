@@ -400,6 +400,7 @@
     <Content Include="Views\Shared\JsAlertRedirect.cshtml" />
     <Content Include="Views\MB\Index.cshtml" />
     <Content Include="Views\Shared\Error_DbEntityValidationException.cshtml" />
+    <Content Include="Views\Home\VT.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
