@@ -32,20 +32,26 @@
             <th></th>
         </tr>
 
+        @{ 
+            var batch = Model.ToArray();
+            var i = 0;
+        }
+
         @foreach (var item in Model)
         {
+            @Html.HiddenFor(modelItem => batch[i].ProductId)
             <tr>
                 <td>
                     @Html.DisplayFor(modelItem => item.ProductName)
                 </td>
                 <td>
-                    @Html.EditorFor(modelItem => item.Price)
+                    @Html.EditorFor(modelItem => batch[i].Price)
                 </td>
                 <td>
-                    @Html.EditorFor(modelItem => item.Active)
+                    @Html.EditorFor(modelItem => batch[i].Active)
                 </td>
                 <td>
-                    @Html.EditorFor(modelItem => item.Stock)
+                    @Html.EditorFor(modelItem => batch[i].Stock)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.IsDeleted)
@@ -56,6 +62,7 @@
                     @Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
                 </td>
             </tr>
+            i++;
         }
 
     </table>
