@@ -1,0 +1,19 @@
+﻿@model MVC5Course.Models.Client
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Client</h4>
+    <hr />
+
+    @Html.DisplayForModel()
+
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ClientId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
