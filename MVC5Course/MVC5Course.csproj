@@ -560,6 +560,7 @@
     <Content Include="Views\Home\MetroIndex.cshtml" />
     <Content Include="Views\Shared\_Layout.Metro.cshtml" />
     <Content Include="Views\Home\_ViewStart.cshtml" />
+    <Content Include="Views\Products\OrderLines.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />
