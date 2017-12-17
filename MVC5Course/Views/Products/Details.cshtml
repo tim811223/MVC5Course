@@ -49,8 +49,7 @@
 
 <h4>OrderLines for @Model.ProductName</h4>
 
-@Html.Partial("OrderLines", (object)ViewBag.OrderLines)
-
+@Html.Action("Index", "OrderLines", new { id = Model.ProductId })
 
 
 <p>
