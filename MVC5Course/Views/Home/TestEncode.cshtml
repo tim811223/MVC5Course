@@ -1,4 +1,5 @@
-﻿@{
+﻿@using Microsoft.Security.Application
+@{
     Layout = "";
 
     var a = "<h1>Hello 哈囉 World</h1>";
@@ -20,12 +21,14 @@
 
 <hr />
 
-@{ 
+@{
     var path = "/Home/首頁";
 }
 <a href="@HttpUtility.UrlPathEncode(path)?html=@Url.Encode(a)">content</a>
 
-@{ 
+<hr />
+
+@{
     var msg = @"新增成功！
 
 Hello";
@@ -34,3 +37,12 @@ Hello";
 <script>
     alert('@Ajax.JavaScriptStringEncode(msg)');
 </script>
+
+<hr />
+
+@{
+    var xss = "<h1>Hello <script>alert('XSS');</script></h1>";
+}
+
+@Html.Raw(Encoder.HtmlEncode(xss))
+@Html.Raw(Sanitizer.GetSafeHtmlFragment(xss))
