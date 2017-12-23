@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "AjaxHome";
+}
+
+<h2>AjaxHome</h2>
+
+@Ajax.ActionLink("取得時間", "GetTime", new AjaxOptions() { UpdateTargetId = "time" })
+
+<div id="time"></div>
+
+@section Scripts {
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+}
