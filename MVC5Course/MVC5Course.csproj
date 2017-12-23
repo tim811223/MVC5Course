@@ -584,6 +584,7 @@
     <Content Include="Views\Shared\DisplayTemplates\CreditRating.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DateOfBirth.cshtml" />
     <Content Include="Views\Home\AjaxHome.cshtml" />
+    <Content Include="Views\Home\TestEncode.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Base\" />

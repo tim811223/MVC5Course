@@ -1,0 +1,36 @@
+﻿@{
+    Layout = "";
+
+    var a = "<h1>Hello 哈囉 World</h1>";
+}
+
+@Html.Raw(a)
+
+<hr />
+
+@a
+
+<hr />
+
+<a href="/Home/TestCode?html=@(a)">content</a>
+
+<hr />
+
+<a href="/Home/TestCode?html=@Url.Encode(a)">content</a>
+
+<hr />
+
+@{ 
+    var path = "/Home/首頁";
+}
+<a href="@HttpUtility.UrlPathEncode(path)?html=@Url.Encode(a)">content</a>
+
+@{ 
+    var msg = @"新增成功！
+
+Hello";
+}
+
+<script>
+    alert('@Ajax.JavaScriptStringEncode(msg)');
+</script>
