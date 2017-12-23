@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<MVC5Course.Models.Product>
+@using PagedList
+@using PagedList.Mvc
 
 @{
     ViewBag.Title = "Index";
@@ -26,35 +28,43 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Price)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Active)
-        </td>
-        <td>
-            @if (item.Stock < 1000)
-            {
-                @:<strong style="color: red;">
-            }
-            @Html.DisplayFor(modelItem => item.Stock)
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @if (item.Stock < 1000)
+                {
+                    @:<strong style="color: red;">
+                }
+                @Html.DisplayFor(modelItem => item.Stock)
 
-            @if (item.Stock < 1000)
-            {
-                @:</strong>
-            }
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
-        </td>
-    </tr>
-}
+                @if (item.Stock < 1000)
+                {
+                    @:</strong>
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProductId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProductId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ProductId })
+            </td>
+        </tr>
+    }
 
 </table>
+
+@{
+    var pagedListData = Model as IPagedList;
+}
+
+@Html.PagedListPager(pagedListData,
+    (p) => Url.Action("Index", new { pageNo = p }) )
